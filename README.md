@@ -6,7 +6,8 @@ The program is built using the Python programming language and utilizes the Flas
 The main file, app.py, contains the API endpoints.
 Additional files include animal_func.py, crop_func.py, and weather_forecasting.py. These files contain functions related to weather forecasting, formulating queries, and providing sufficient information to the ChatGPT model for analysis and suggestions.
 A .env file is required to store the OPENAI_API_KEY.
-Program Purpose:
+
+## Program Purpose:
 The project aims to assist farmers in making informed decisions about crop cultivation and animal husbandry by utilizing artificial intelligence and weather forecasting. Here are the key functionalities:
 
 ## Crop Cultivation:
