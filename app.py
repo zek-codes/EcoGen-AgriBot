@@ -34,12 +34,34 @@ def crop():
         'msg':res
         }
 
-@app.route('/api/v1/download_weather_forecast', methods=['GET'])
+@app.route('/api/v1/download_weather_forecast', methods=['POST'])
 def download_weather_forecast():
-    request_json = request.get_json()
-    make_pdf_table(wether_forecast(request_json['latitude'], request_json['longitude']))
+    lat = request.form.get('lat')
+    lon = request.form.get('long')
+    make_pdf_table(wether_forecast(lat, lon))
     return send_from_directory(directory='.', path='weather_forecasting.pdf',filename='weather_forecasting.pdf')
 
 
-""" if __name__ == '__main__':
-    app.run(debug=True , port=5005) """
+
+@app.route('/index', methods=['GET' , 'POST'])
+def index():
+    if request.method == 'POST':
+        lat = request.form['lat']
+        lon = request.form['long']
+        soil_quality = request.form.get('soil_quality')
+        crop_rotation = request.form.get('crop_rotation')
+        irrigation_type = request.form.get('irrigation_type')
+        water_retention = request.form.get('water_retention')
+        crop_type = request.form.get('crop_type')
+        res = openai_function(weather_forecast_to_question_crop(wether_forecast(lat, lon) , soil_quality , crop_rotation , irrigation_type , water_retention , crop_type))
+        return render_template('home.html' , res=res)
+    else:
+        return render_template('home.html' , res='Results !')
+
+
+
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True , port=5005)

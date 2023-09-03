@@ -1,0 +1,71 @@
+:root {
+    --cs-c1: #f6f1eb;
+    --cs-primary: #71c4ef;
+    --cs-success: #02cd98;
+    --cs-danger: #eb1954;
+    --cs-warning: #fb841d;
+}
+
+*:hover {
+    transition: all .3s ease-in-out;
+}
+
+.cs-c1 {
+    background: var(--cs-c1)!important;
+}
+
+.cs-primary {
+    background: var(--cs-primary);
+}
+.cs-success {
+    background: var(--cs-success);
+}
+.cs-danger {
+    background: var(--cs-danger);
+}
+.cs-warning {
+    background: var(--cs-warning);
+}
+
+// Custom BS 
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--cs-success);
+}
+
+.bi::before, [class^="bi-"]::before, [class*=" bi-"]::before {
+    vertical-align: -.25rem
+}
+
+.btn:hover {
+    background-color: var(--bs-black);
+    color: var(--bs-white);
+}
+
+.vh-50 {
+    height: 50vh !important;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.dropdown-menu {
+    padding: .75rem 0;
+    &.show {
+        // transform: translate(0, 55px)!important;
+    }
+    .dropdown-item {
+        padding: .65rem 1.25rem;
+    }
+}
+
+.nav-link {
+    color: var(--bs-gray);
+    &.active {
+        background-color: var(--cs-success)!important;
+    }
+    &:hover {
+        color: var(--bs-black);
+    }
+}
